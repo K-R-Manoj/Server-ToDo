@@ -29,6 +29,7 @@ app.use('/trash', TrashRoutes);
 
 const PORT  = process.env.PORT || 5000;
 
+mongoose.set('strictQuery', true);
 mongoose.connect(process.env.CONNECTION_URL)
     .then(()=> app.listen(PORT,()=> console.log(`Server running on Port: ${PORT}`)))
     .catch((error)=>{console.log(error.message);});
